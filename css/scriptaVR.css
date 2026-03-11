@@ -6,8 +6,7 @@ font-family: "Helvetica Neue", sans-serif;
 }
 
 
-/* HEADER */
-
+/* ================== HEADER FIJO ================== */
 .header{
 position:fixed;
 top:0;
@@ -26,95 +25,64 @@ backdrop-filter:blur(12px);
 
 border-bottom:1px solid rgba(255,255,255,0.08);
 
-z-index:1000;
+z-index:9999;
 }
 
-/* LOGO */
-
-/* LOGO CONTENEDOR */
-
-.logo{
-display:flex;
-align-items:center;
-cursor:pointer;
+/* Logo */
+.logo img {
+    height: 42px;
+    width: auto;
+    transition: all .35s ease;
+    opacity: .9;
+}
+.logo:hover img {
+    transform: scale(1.06);
+    opacity: 1;
+    filter: brightness(1.15);
 }
 
-/* IMAGEN DEL LOGO */
-
-.logo img{
-height:42px;
-width:auto;
-
-transition:all .35s ease;
-opacity:.9;
-}
-
-/* EFECTO HOVER SUTIL */
-
-.logo:hover img{
-transform:scale(1.06);
-opacity:1;
-filter:brightness(1.15);
-}
-
-/* NAV */
-
-/* NAV FIJO */
+/* Nav */
 .nav {
-  display: flex;
-  gap: 40px;
-
-  position: fixed; /* Fijo en la pantalla */
-  top: 0;          /* Arriba de todo */
-  left: 0;
-  width: 100%;     /* Ocupa todo el ancho */
-  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente opcional */
-  padding: 20px 80px; /* Ajusta según tu diseño */
-  z-index: 1000;   /* Para que esté por encima de otros elementos */
+    display: flex;
+    gap: 40px;
 }
 
-.nav a{
-position:relative;
-text-decoration:none;
-color:white;
-font-size:14px;
-letter-spacing:2px;
-opacity:.7;
-transition:.4s;
+.nav a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+    opacity: .7;
+    transition: .4s;
 }
-
-/* hover suave */
-
-.nav a:hover{
-opacity:1;
+.nav a:hover {
+    opacity: 1;
 }
-
-/* línea animada */
-
-.nav a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:white;
-transition:0.4s;
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 1px;
+    background: white;
+    transition: 0.4s;
 }
-
-.nav a:hover::after{
-width:100%;
+.nav a:hover::after {
+    width: 100%;
 }
 
 
 
-body{
-background:black;
-color:white;
-overflow-x:hidden;
+
+body {
+  padding-top: 70px; /* altura del header */
+  background: black;
+  color: white;
+  overflow-x: hidden;
 }
+
 
 section{
 height:100vh;
