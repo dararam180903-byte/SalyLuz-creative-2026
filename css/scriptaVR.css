@@ -1,0 +1,492 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Helvetica Neue", sans-serif;
+}
+
+
+/* HEADER */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 80px;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+
+z-index:1000;
+}
+
+/* LOGO */
+
+/* LOGO CONTENEDOR */
+
+.logo{
+display:flex;
+align-items:center;
+cursor:pointer;
+}
+
+/* IMAGEN DEL LOGO */
+
+.logo img{
+height:42px;
+width:auto;
+
+transition:all .35s ease;
+opacity:.9;
+}
+
+/* EFECTO HOVER SUTIL */
+
+.logo:hover img{
+transform:scale(1.06);
+opacity:1;
+filter:brightness(1.15);
+}
+
+/* NAV */
+
+.nav{
+display:flex;
+gap:40px;
+}
+
+.nav a{
+position:relative;
+text-decoration:none;
+color:white;
+font-size:14px;
+letter-spacing:2px;
+opacity:.7;
+transition:.4s;
+}
+
+/* hover suave */
+
+.nav a:hover{
+opacity:1;
+}
+
+/* línea animada */
+
+.nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:white;
+transition:0.4s;
+}
+
+.nav a:hover::after{
+width:100%;
+}
+
+
+
+body{
+background:black;
+color:white;
+overflow-x:hidden;
+}
+
+section{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+.hero{
+margin-bottom:0;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+filter:brightness(.5);
+}
+
+
+.scene video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+filter:brightness(.5);
+}
+
+.content{
+animation:heroText 2s ease 1s forwards;
+opacity:0;
+}
+
+@keyframes heroText{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+.title{
+font-size:70px;
+letter-spacing:10px;
+}
+
+.subtitle{
+margin-top:20px;
+font-size:20px;
+opacity:.8;
+}
+
+.text{
+max-width:700px;
+padding:40px;
+opacity:0;
+transform:translateY(50px);
+transition:all 1.5s ease;
+}
+
+.text.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.text h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.text p{
+font-size:18px;
+line-height:1.7;
+opacity:.85;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(1.1);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.scene-split:nth-of-type(even) .text{
+text-align:right;
+}
+
+
+.scene-split{
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:100vh;
+padding:0;
+}
+
+/* alternar izquierda / derecha */
+.scene-split:nth-of-type(even){
+flex-direction:row-reverse;
+}
+
+/* VIDEO */
+.scene-split video{
+position:relative;
+width:55%;
+height:100%;
+object-fit:cover;
+}
+
+/* TEXTO */
+.scene-split .text{
+width:45%;
+padding:80px;
+text-align:left;
+}
+
+/* cuando el texto queda a la izquierda */
+.scene-split:nth-of-type(even) .text{
+text-align:right;
+}
+
+
+body{
+background:black;
+color:white;
+overflow-x:hidden;
+animation:pageIntro 2s ease forwards;
+opacity:0;
+}
+
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+opacity:0.08;
+pointer-events:none;
+}
+
+
+
+/* animación general */
+@keyframes pageIntro{
+
+0%{
+opacity:0;
+transform:scale(1.03);
+filter:blur(10px);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
+
+}
+
+
+.intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:9999;
+animation:introFade 2.5s ease forwards;
+}
+
+@keyframes introFade{
+
+0%{
+opacity:1;
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+visibility:hidden;
+}
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+
+/* ===== laptops pequeñas ===== */
+
+@media (max-width:1200px){
+
+.header{
+padding:0 40px;
+}
+
+.nav{
+gap:25px;
+}
+
+.title{
+font-size:55px;
+letter-spacing:6px;
+}
+
+.scene-split video{
+width:50%;
+}
+
+.scene-split .text{
+width:50%;
+padding:60px;
+}
+
+}
+
+
+/* ===== tablets ===== */
+
+@media (max-width:900px){
+
+.header{
+padding:0 30px;
+}
+
+.nav{
+gap:18px;
+}
+
+.nav a{
+font-size:13px;
+letter-spacing:1px;
+}
+
+.title{
+font-size:42px;
+letter-spacing:4px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+.text h2{
+font-size:32px;
+}
+
+.text p{
+font-size:16px;
+}
+
+.scene-split{
+flex-direction:column;
+height:auto;
+}
+
+.scene-split:nth-of-type(even){
+flex-direction:column;
+}
+
+.scene-split video{
+width:100%;
+height:60vh;
+}
+
+.scene-split .text{
+width:100%;
+padding:50px 40px;
+text-align:center;
+}
+
+.scene-split:nth-of-type(even) .text{
+text-align:center;
+}
+
+}
+
+
+/* ===== móviles ===== */
+
+@media (max-width:600px){
+
+.header{
+padding:0 20px;
+height:60px;
+}
+
+.logo img{
+height:34px;
+}
+
+.nav{
+gap:14px;
+}
+
+.nav a{
+font-size:12px;
+letter-spacing:1px;
+}
+
+.title{
+font-size:32px;
+letter-spacing:3px;
+}
+
+.subtitle{
+font-size:16px;
+padding:0 20px;
+}
+
+.text{
+padding:30px 25px;
+}
+
+.text h2{
+font-size:26px;
+}
+
+.text p{
+font-size:15px;
+line-height:1.6;
+}
+
+.scene-split video{
+height:50vh;
+}
+
+}
+
+
+/* ===== móviles pequeños ===== */
+
+@media (max-width:400px){
+
+.title{
+font-size:26px;
+letter-spacing:2px;
+}
+
+.subtitle{
+font-size:14px;
+}
+
+.text h2{
+font-size:22px;
+}
+
+.text p{
+font-size:14px;
+}
+
+.nav{
+gap:10px;
+}
+
+.nav a{
+font-size:11px;
+}
+
+}

@@ -1,0 +1,552 @@
+@import url(https://unpkg.com/open-props/open-props.min.css); 
+@import url(https://unpkg.com/open-props/normalize.min.css);
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+   font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== FONDO CON BLUR ===== */
+
+.bg-blur{
+    position:fixed;
+    inset:0;
+    background:url("../assets/img/black\ n\ white.jpg") center/cover no-repeat;
+    filter: blur(12px);
+    transform: scale(1.1); /* evita bordes blancos */
+    z-index:-3;
+}
+
+/* Overlay oscuro igual referencia */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0, 0, 0, 0.482);
+    z-index:-2;
+}
+
+/* ===== REDES ARRIBA ===== */
+
+.social-nav {
+  position: absolute;
+  top: 40px; /* Ajusta según cuánto quieras separarlo del top */
+  left: 53%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+ul {
+  padding: 0;
+  display: inline-grid;
+  grid-auto-flow: column;
+  list-style-type: none;
+  grid-template-columns: auto repeat(3, calc((var(--active,0) * 130px) + 10px));
+  transition: grid-template-columns 0.35s var(--ease-elastic-1);
+   gap: 20px; 
+    
+}
+
+li {
+
+  justify-content: end;
+  z-index: calc(var(--count) - var(--index));
+   
+}
+
+a {
+  background: hsl(0 0% 60% / 0.18);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: var(--gray-0, #fff);
+  font-weight: 600;
+  backdrop-filter: blur(20px);
+  transition: color 0.2s, background 0.2s;
+ 
+}
+
+li:nth-of-type(n+2) a {
+  opacity: var(--active, 0);
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+}
+
+ul:hover, ul:focus-within {
+  --active: 1;
+}
+
+span {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: 24px auto;
+  gap: 0.4rem;
+}
+
+svg {
+  height: 24px;
+  aspect-ratio: 1;
+  fill: currentColor;
+  
+}
+
+
+/* ===== CENTRO ===== */
+
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* LOGO CON LUZ SUTIL */
+/* LOGO CON LUZ AMARILLA SUTIL*/
+.logo{
+    width:600px;
+    max-width:90%;
+
+        filter:
+            drop-shadow(0 0 12px rgba(255, 196, 0, 0.315))
+            drop-shadow(0 0 30px rgba(255, 196, 0, 0.026))
+            drop-shadow(0 0 60px rgba(255, 196, 0, 0.15));
+
+        transition: .4s ease;
+} 
+
+/* BOTÓN MENU */
+.light-switch{
+    position:fixed;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.switch-track{
+    width:120px;
+    height:50px;
+    background:#222;
+    border-radius:50px;
+    position:relative;
+    padding:5px;
+    transition:.4s;
+    border:1px solid #444;
+}
+
+.switch-bulb{
+    width:40px;
+    height:40px;
+    background:#444;
+    border-radius:50%;
+    position:absolute;
+    left:5px;
+    top:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.switch-bulb i{
+    color:#ffd700;
+    font-size:20px;
+    transition:.4s;
+     z-index:2;
+}
+
+.light-switch.active .switch-track{
+    background:white;
+}
+
+.light-switch.active .switch-bulb{
+    left:75px;
+    background:#ffd700;
+    box-shadow:
+        0 0 20px #ffd700,
+        0 0 50px #ffd700aa;
+}
+
+.light-switch.active .switch-bulb i{
+    color:white;
+}
+
+
+/* TEXTO MENU */
+
+.menu-text{
+    position:absolute;
+    top:50%;
+    right:35px; /* posición cuando está cerrado */
+    transform:translateY(-50%);
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:14px;
+    color:white;
+    pointer-events:none;
+    transition:.4s cubic-bezier(.68,-0.55,.27,1.55);
+    z-index:1;
+    white-space:nowrap;
+}
+
+.light-switch.active .menu-text{
+    left:15px;
+    right:auto;
+    color:black;
+}
+
+
+
+
+.switch-track{
+    overflow:hidden;
+}
+
+
+
+
+
+/* CAMBIO GLOBAL DEL MENU */
+
+.menu-overlay.active{
+    background:black;
+    color:white;
+}
+
+.menu-overlay,
+.menu-overlay p,
+.menu-overlay h2{
+    color:white;
+}
+
+
+.menu-section h2{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    font-size:28px;
+
+}
+
+.menu-section i{
+    font-size:26px;
+    transition:.3s;
+    
+}
+
+.menu-section:hover i{
+    transform:scale(1.2) rotate(5deg);
+    color:#ffd700;
+}
+
+
+/* OVERLAY */
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:black;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:.5s ease;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* CONTENIDO */
+.menu-content{
+    text-align:center;
+    animation:fadeUp .8s ease;
+}
+
+.menu-section{
+    margin:30px 0;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.menu-section:hover{
+    transform:scale(1.05);
+    color:#ffd700;
+}
+
+/* LINKS DEL MENU */
+
+.menu-section a{
+    text-decoration:none;   /* quita línea */
+    color:inherit;          /* usa el color del h2 */
+    display:inline-block;
+    background:black;
+}
+
+/* evitar colores azul/morado visitado */
+.menu-section a:visited{
+    color:inherit;
+}
+
+/* evitar cambio al pasar mouse */
+.menu-section a:hover{
+    color:inherit;
+}
+
+
+/* BOTÓN CERRAR */
+.close-btn{
+    margin-top:40px;
+    padding:10px 30px;
+    border:none;
+    background:white;
+    color:black;
+    cursor:pointer;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp{
+    from{
+        transform:translateY(40px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+/* =========================
+   EFECTO GRANULADO GLOBAL
+========================= */
+
+.grain{
+    position: fixed;
+    inset: -50%;
+
+    background-image: url("../assets/img/descarga\ \(20\).jpg");
+
+    background-repeat: repeat;
+    background-size: 1200px; /* CLAVE */
+
+    mix-blend-mode: soft-light;
+    opacity: .15;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    animation: grainMove 8s steps(10) infinite;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* ===== pantallas medianas ===== */
+
+@media (max-width:1200px){
+
+.logo{
+width:500px;
+}
+
+.social-nav{
+top:35px;
+}
+
+ul{
+gap:15px;
+}
+
+}
+
+
+/* ===== tablets ===== */
+
+@media (max-width:900px){
+
+.logo{
+width:420px;
+}
+
+/* redes sociales */
+
+.social-nav{
+top:30px;
+left:50%;
+}
+
+ul{
+grid-template-columns:auto repeat(3, calc((var(--active,0) * 110px) + 10px));
+gap:12px;
+}
+
+a{
+padding:0.4rem 0.9rem;
+font-size:14px;
+}
+
+/* menu overlay */
+
+.menu-section h2{
+font-size:24px;
+}
+
+.menu-section i{
+font-size:22px;
+}
+
+/* switch */
+
+.switch-track{
+width:100px;
+height:44px;
+}
+
+.switch-bulb{
+width:34px;
+height:34px;
+}
+
+.light-switch.active .switch-bulb{
+left:60px;
+}
+
+}
+
+
+/* ===== móviles ===== */
+
+@media (max-width:600px){
+
+/* logo */
+
+.logo{
+width:300px;
+}
+
+/* redes */
+
+.social-nav{
+top:25px;
+}
+
+ul{
+grid-template-columns:auto;
+gap:10px;
+}
+
+li:nth-of-type(n+2) a{
+opacity:1;
+transform:none;
+}
+
+/* hero */
+
+.hero{
+padding:0 20px;
+}
+
+/* menu switch */
+
+.switch-track{
+width:90px;
+height:40px;
+}
+
+.switch-bulb{
+width:30px;
+height:30px;
+}
+
+.light-switch.active .switch-bulb{
+left:55px;
+}
+
+.menu-text{
+font-size:12px;
+letter-spacing:1px;
+}
+
+/* menu overlay */
+
+.menu-section{
+margin:25px 0;
+}
+
+.menu-section h2{
+font-size:20px;
+}
+
+.menu-section i{
+font-size:20px;
+}
+
+.close-btn{
+padding:8px 20px;
+font-size:14px;
+}
+
+}
+
+
+/* ===== móviles pequeños ===== */
+
+@media (max-width:400px){
+
+.logo{
+width:240px;
+}
+
+.social-nav{
+top:20px;
+}
+
+a{
+font-size:13px;
+padding:0.3rem 0.8rem;
+}
+
+.menu-section h2{
+font-size:18px;
+}
+
+.menu-section i{
+font-size:18px;
+}
+
+.switch-track{
+width:80px;
+height:36px;
+}
+
+.switch-bulb{
+width:26px;
+height:26px;
+}
+
+.light-switch.active .switch-bulb{
+left:48px;
+}
+
+.menu-text{
+font-size:11px;
+}
+
+}
+

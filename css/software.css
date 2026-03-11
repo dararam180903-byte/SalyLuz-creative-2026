@@ -1,0 +1,778 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+@import url("https://fonts.googleapis.com/css?family=Anonymous+Pro");
+
+/* ====================
+   RESET & BASE
+==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    opacity: 0;
+    transform: scale(1.03);
+    animation: pageReveal 1.4s ease forwards;
+}
+
+@keyframes pageReveal {
+    0% {
+        opacity: 0;
+        transform: scale(1.03);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+
+
+/* HEADER */
+
+.header{
+position:sticky;
+top:0;
+left:0;
+width:100%;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 80px;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+
+z-index:1000;
+}
+
+/* LOGO */
+
+/* LOGO CONTENEDOR */
+
+.logo{
+display:flex;
+align-items:center;
+cursor:pointer;
+}
+
+/* IMAGEN DEL LOGO */
+
+.logo img{
+height:42px;
+width:auto;
+
+transition:all .35s ease;
+opacity:.9;
+}
+
+/* EFECTO HOVER SUTIL */
+
+.logo:hover img{
+transform:scale(1.06);
+opacity:1;
+filter:brightness(1.15);
+}
+
+/* NAV */
+
+.nav{
+display:flex;
+gap:40px;
+}
+
+.nav a{
+position:relative;
+text-decoration:none;
+color:white;
+font-size:14px;
+letter-spacing:2px;
+opacity:.7;
+transition:.4s;
+}
+
+/* hover suave */
+
+.nav a:hover{
+opacity:1;
+}
+
+/* línea animada */
+
+.nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:white;
+transition:0.4s;
+}
+
+.nav a:hover::after{
+width:100%;
+}
+
+
+
+/* ====================
+   HERO SECTION
+==================== */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.54);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid rgba(255, 255, 255, 0.75);
+    max-width: 0;
+    margin: 0 auto;
+}
+
+.hero-title.animate {
+    animation: typewriter 4s steps(30) forwards,
+               blinkingCursor 700ms steps(30) infinite;
+}
+
+.hero-subtitle {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    color: #ccc;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease 0.4s;
+}
+
+.hero-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-down {
+    font-size: 3rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+    margin: 30px auto 0;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease 0.6s;
+}
+
+.scroll-down.visible {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+.scroll-down:hover {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+/* ====================
+   PROJECTS SECTION
+==================== */
+.projects-section {
+    position: relative;  /* Importante para que el modal se posicione dentro */
+    height: 100vh;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;  /* Evita que el modal se salga */
+}
+
+.projects-content {
+    max-width: 700px;
+    padding: 0 20px;
+    position: relative;  /* Asegura que el contenido esté sobre el modal cuando está cerrado */
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid rgba(255, 255, 255, 0.75);
+    max-width: 0;
+    margin: 0 auto;
+}
+
+.section-title.animate {
+    animation: typewriter 4s steps(30) forwards,
+               blinkingCursor 700ms steps(30) infinite;
+}
+
+.section-subtitle {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease 0.4s;
+}
+
+.section-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.folder-container {
+    margin-top: 40px;
+    cursor: pointer;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease 0.6s;
+}
+
+.folder-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.folder-icon {
+    width: 80px;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.folder-icon.opening {
+    transform: scale(1.15) rotateX(12deg);
+    filter: brightness(1.1);
+}
+
+@keyframes typewriter {
+    from { max-width: 0; }
+    to { max-width: 30ch; }
+}
+
+@keyframes blinkingCursor {
+    from { border-right-color: rgba(255, 255, 255, 0.75); }
+    to { border-right-color: transparent; }
+}
+
+/* ====================
+   MODAL WINDOW
+==================== */
+.modal-overlay {
+    position: absolute;  /* Cambiado de fixed a absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-window {
+    width: 900px;  /* Un poco más pequeño */
+    height: 500px;  /* Un poco más pequeño */
+    max-width: 90%;
+    max-height: 80vh;  /* 80% del viewport height */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+    transform: scale(0.85) translateY(30px);
+    opacity: 0;
+    transition: transform 0.45s cubic-bezier(0.16, 0.84, 0.44, 1),
+                opacity 0.35s ease;
+    margin: 0 auto;  /* Centrado */
+}
+
+.modal-overlay.show .modal-window {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Modal Header */
+.modal-header {
+    background: #f3f3f3;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    color: #000;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: #e81123;
+    color: white;
+}
+
+/* Modal Toolbar */
+.modal-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 15px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #fafafa;
+}
+
+.toolbar-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.tool-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tool-btn:hover {
+    background: #f1f1f1;
+}
+
+.tool-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.modal-path {
+    font-size: 13px;
+    color: #444;
+}
+
+/* Modal Main Layout */
+.modal-main {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Modal Sidebar */
+.modal-sidebar {
+    width: 200px;
+    background: #fbfbfb;
+    border-right: 1px solid #e6e6e6;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #000;
+}
+
+.sidebar-item:hover {
+    background: #e8f0fe;
+}
+
+.sidebar-item.active {
+    background: #e8f0fe;
+}
+
+/* Modal Content */
+.modal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 110px);
+    gap: 25px;
+}
+
+.file-item:hover .file-icon{
+transform:scale(1.15);
+color:#000000;
+}
+
+
+.file-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #111;
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.file-item:hover {
+    background: #e8f0fe;
+}
+
+.file-item img {
+    width: 48px;
+    margin-bottom: 6px;
+}
+
+/* Modal Status */
+.modal-status {
+    padding: 6px 15px;
+    border-top: 1px solid #e6e6e6;
+    font-size: 12px;
+    color: #666;
+    background: #fafafa;
+}
+
+/* ====================
+   BACK TO TOP BUTTON
+==================== */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+    background: transparent;
+}
+
+.back-to-top.show {
+    opacity: 0.8;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.arrow-lines {
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 1;
+}
+
+/* ====================
+   UTILITY CLASSES
+==================== */
+.hidden {
+    display: none !important;
+}
+
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .modal-window {
+        width: 95%;
+        height: auto;
+        max-height: 70vh;
+    }
+    
+    .modal-sidebar {
+        display: none;  /* Ocultar sidebar en móvil */
+    }
+    
+    .file-grid {
+        grid-template-columns: repeat(auto-fill, 80px);
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* ===== Pantallas grandes ===== */
+
+@media (max-width:1200px){
+
+.header{
+padding:0 40px;
+}
+
+.nav{
+gap:25px;
+}
+
+.hero-title{
+font-size:2.2rem;
+}
+
+.section-title{
+font-size:2.2rem;
+}
+
+.modal-window{
+width:800px;
+height:480px;
+}
+
+}
+
+
+/* ===== Tablets ===== */
+
+@media (max-width:900px){
+
+.header{
+padding:0 30px;
+}
+
+.nav{
+gap:18px;
+}
+
+.nav a{
+font-size:13px;
+letter-spacing:1px;
+}
+
+.hero-title{
+font-size:2rem;
+}
+
+.hero-subtitle{
+font-size:1.2rem;
+}
+
+.section-title{
+font-size:2rem;
+}
+
+.section-subtitle{
+font-size:1.2rem;
+}
+
+/* modal */
+
+.modal-window{
+width:90%;
+height:auto;
+max-height:75vh;
+}
+
+.modal-sidebar{
+display:none;
+}
+
+.file-grid{
+grid-template-columns:repeat(auto-fill,90px);
+gap:20px;
+}
+
+}
+
+
+/* ===== Móviles ===== */
+
+@media (max-width:600px){
+
+.header{
+padding:0 20px;
+height:60px;
+}
+
+.logo img{
+height:34px;
+}
+
+.nav{
+gap:14px;
+}
+
+.nav a{
+font-size:12px;
+letter-spacing:1px;
+}
+
+/* HERO */
+
+.hero-title{
+font-size:1.6rem;
+border-right:2px solid rgba(255,255,255,.75);
+}
+
+.hero-subtitle{
+font-size:1rem;
+margin-top:20px;
+}
+
+.scroll-down{
+font-size:2.2rem;
+}
+
+/* PROJECTS */
+
+.section-title{
+font-size:1.6rem;
+}
+
+.section-subtitle{
+font-size:1rem;
+}
+
+.folder-icon{
+width:60px;
+}
+
+/* MODAL */
+
+.modal-window{
+width:95%;
+max-height:70vh;
+}
+
+.modal-content{
+padding:15px;
+}
+
+.file-grid{
+grid-template-columns:repeat(auto-fill,70px);
+gap:12px;
+}
+
+.file-item img{
+width:36px;
+}
+
+/* BACK BUTTON */
+
+.back-to-top{
+width:40px;
+height:40px;
+bottom:25px;
+right:25px;
+}
+
+.arrow-lines{
+font-size:1.4rem;
+}
+
+}
+
+
+/* ===== Móviles pequeños ===== */
+
+@media (max-width:400px){
+
+.hero-title{
+font-size:1.3rem;
+}
+
+.hero-subtitle{
+font-size:0.9rem;
+}
+
+.section-title{
+font-size:1.3rem;
+}
+
+.section-subtitle{
+font-size:0.9rem;
+}
+
+.nav{
+gap:10px;
+}
+
+.nav a{
+font-size:11px;
+}
+
+.file-grid{
+grid-template-columns:repeat(auto-fill,60px);
+}
+
+.file-item img{
+width:32px;
+}
+
+}

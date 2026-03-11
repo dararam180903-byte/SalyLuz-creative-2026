@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<link rel="apple-touch-icon" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+
+<link rel="stylesheet" href="./css/scriptaVR.css">
+
+<title>Scripta VR | Luz Studio</title>
+</head>
+<body>
+
+       <header class="header">
+
+<div class="logo">
+<img src="https://drive.google.com/file/d/1fniJoGr11FmKablqxK8GTxzK4UIHebcG/view?usp=drive_link" alt="">
+</div>
+
+<nav class="nav">
+<a href="index.html">Inicio</a>
+<a href="diseños.html">Diseños</a>
+<a href="software.html">Software</a>
+<a href="scripta_vr.html">Scripta VR</a>
+<a href="imprenta.html">Imprenta</a>
+</nav>
+
+</header>
+
+
+
+    <div class="intro"></div>
+
+
+<section class="hero">
+<video autoplay muted loop playsinline>
+<source src="/assets/Videos/Video (1).mp4" type="video/mp4">
+</video>
+
+<div class="content">
+<h1 class="title">SCRIPTA VR</h1>
+<p class="subtitle">Explorando la historia bíblica en realidad virtual</p>
+</div>
+</section>
+
+
+<section class="scene scene-split">
+<video class="video-ajustado" autoplay muted loop playsinline>
+<source src="/assets/Videos/Video (2).mp4" type="video/mp4">
+</video>
+
+<div class="text">
+<h2>¿Qué es Scripta VR?</h2>
+<p>
+Scripta VR es una plataforma que busca trasladar los textos bíblicos
+a experiencias inmersivas en realidad virtual, permitiendo explorar
+modelos históricos y arqueológicos basados en las Escrituras.
+</p>
+</div>
+</section>
+
+
+<section class="scene scene-split">
+<video class="video-ajustado" autoplay muted loop playsinline>
+<source src="/assets/Videos/Video (3).mp4" type="video/mp4">
+</video>
+
+<div class="text">
+<h2>Nuestro propósito</h2>
+<p>
+Transformar la manera en que las personas estudian la Biblia,
+permitiendo visualizar lugares, objetos y estructuras históricas
+dentro de entornos tridimensionales interactivos.
+</p>
+</div>
+</section>
+
+
+<section class="scene">
+<video autoplay muted loop playsinline>
+<source src="/assets/Videos/Video (4).mp4" type="video/mp4">
+</video>
+
+<div class="text">
+<h2>El futuro del aprendizaje bíblico</h2>
+<p>
+Una nueva generación podrá aprender historia bíblica
+explorando modelos reales dentro de mundos virtuales.
+</p>
+</div>
+</section>
+
+<script>
+    const texts = document.querySelectorAll(".text");
+
+window.addEventListener("scroll", () => {
+
+texts.forEach(text => {
+
+const position = text.getBoundingClientRect().top;
+const screen = window.innerHeight;
+
+if(position < screen - 100){
+text.classList.add("show");
+}
+
+});
+
+});
+
+
+document.querySelectorAll("video").forEach(video => {
+video.playbackRate = 0.5;
+});
+
+
+
+</script>
+
+</body>
+</html>

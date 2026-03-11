@@ -1,0 +1,156 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:40px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.page{
+
+background:#2b2b2b;
+
+width:90vw;
+max-width:1200px;
+
+padding:80px 6vw;
+
+border-radius:40px;
+
+}
+
+/* GRID */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+column-gap:8vw;
+
+row-gap:7vw;
+
+}
+
+/* DESFASE DE LAS TARJETAS DERECHAS */
+
+.card.top{
+margin-top:5vw;
+}
+
+/* TARJETA */
+
+.card{
+
+text-align:center;
+
+color:#cfcfcf;
+
+}
+
+/* CUADRO DE PLAYERA */
+
+.imgBox{
+
+width:100%;
+max-width:340px;
+
+aspect-ratio:1 / 1;
+
+background:#bdbdbd;
+
+border-radius:40px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin:0 auto 30px auto;
+
+}
+
+/* PLAYERA */
+
+.imgBox img{
+
+width:65%;
+
+filter:drop-shadow(0 12px 20px rgba(0,0,0,0.45));
+
+transition:0.3s;
+
+}
+
+/* HOVER PROFESIONAL */
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+/* TITULO */
+
+.card h3{
+
+font-size:1.2rem;
+
+font-weight:500;
+
+margin-bottom:8px;
+
+color:#d2d2d2;
+
+}
+
+/* PRECIO */
+
+.card span{
+
+font-size:1rem;
+
+color:#b0b0b0;
+
+}
+
+/* RESPONSIVE PARA LAPTOPS PEQUEÑAS */
+
+@media (max-width:1100px){
+
+.grid{
+column-gap:6vw;
+row-gap:6vw;
+}
+
+.imgBox{
+max-width:300px;
+}
+
+}
+
+/* RESPONSIVE PARA TABLETS */
+
+@media (max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.card.top{
+margin-top:0;
+}
+
+.page{
+padding:60px 40px;
+}
+
+}

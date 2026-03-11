@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<link rel="apple-touch-icon" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<title>Imprenta | Pura Sal</title>
+<link rel="stylesheet" href="./css/imprenta.css">
+</head>
+
+<body>
+
+       <header class="header">
+
+<div class="logo">
+<img src="./assets/img/SAL_&_LUZ/SAL_&_LUZ_B.png" alt="">
+</div>
+
+<nav class="nav">
+<a href="index.html">Inicio</a>
+<a href="diseños.html">Diseños</a>
+<a href="software.html">Software</a>
+<a href="scripta_vr.html">Scripta VR</a>
+<a href="imprenta.html">Imprenta</a>
+</nav>
+
+</header>
+
+
+
+<section class="hero">
+
+<div class="hero-grid">
+
+<div class="hero-img">
+<img src="./assets/img/playeras/Playera 1.png">
+</div>
+
+<div class="hero-center">
+
+<h1 class="hero-logo"><img src="./assets/img/SAL_&_LUZ/Recurso 4.png" alt=""></h1>
+
+<p class="subtitle">Salt in Every Design</p>
+<br>
+<br>
+<button class="shop-btn" onclick="scrollToDesigns()">Ver diseños</button>
+
+</div>
+
+<div class="hero-img">
+<img src="./assets/img/playeras/Playera 2.png">
+</div>
+
+<div class="hero-img">
+<img src="./assets/img/playeras/Playera 3.png">
+</div>
+
+</div>
+
+</section>
+
+
+<section id="designs" class="street-gallery">
+
+<div class="gallery-wrapper">
+
+<div class="gallery-track">
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 2SF.png">
+<h2>Luz y Sal</h2>
+</div>
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 1SF.png">
+<h2>Sección Ramones</h2>
+</div>
+
+
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 3SF.png">
+<h2>Sal y Luz</h2>
+</div>
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 4SF.png">
+<h2>Nueva Ruta</h2>
+</div>
+
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 5SF.png">
+<h2>Pescadores</h2>
+</div>
+
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 6SF.png">
+<h2>Amor como Fuego</h2>
+</div>
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 2SF.png">
+<h2>Sal y Luz</h2>
+</div>
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 3SF.png">
+<h2>Luz</h2>
+</div>
+
+<div class="gallery-item">
+<img src="./assets/img/playeras/Playera 1SF.png">
+<h2>Sección Ramones</h2>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const track = document.querySelector(".gallery-track")
+const items = document.querySelectorAll(".gallery-item")
+
+window.addEventListener("scroll", () => {
+
+let scroll = window.scrollY
+track.style.transform = `translateX(${-scroll * 0.8}px)`
+
+items.forEach(item => {
+
+let rect = item.getBoundingClientRect()
+let center = window.innerWidth / 2
+
+if(rect.left < center && rect.right > center){
+item.classList.add("active")
+}else{
+item.classList.remove("active")
+}
+
+})
+
+})
+
+function scrollToDesigns(){
+document.getElementById("designs").scrollIntoView({
+behavior:"smooth"
+})
+}
+
+</script>
+</body>
+</html>

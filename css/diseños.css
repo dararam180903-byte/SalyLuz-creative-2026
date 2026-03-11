@@ -1,0 +1,513 @@
+/* Importa la fuente Raleway desde Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+/* Reset básico para eliminar márgenes y paddings por defecto */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* Estilos base del body */
+body{
+background:#000; /* Fondo negro */
+color:#fff; /* Texto blanco */
+font-family:Raleway, sans-serif; /* Fuente principal */
+}
+
+
+
+/* HEADER */
+
+.header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 80px;
+
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+
+z-index:1000;
+}
+
+/* LOGO */
+
+/* LOGO CONTENEDOR */
+
+.logo{
+display:flex;
+align-items:center;
+cursor:pointer;
+}
+
+/* IMAGEN DEL LOGO */
+
+.logo img{
+height:42px;
+width:auto;
+
+transition:all .35s ease;
+opacity:.9;
+}
+
+/* EFECTO HOVER SUTIL */
+
+.logo:hover img{
+transform:scale(1.06);
+opacity:1;
+filter:brightness(1.15);
+}
+
+/* NAV */
+
+.nav{
+display:flex;
+gap:40px;
+}
+
+.nav a{
+position:relative;
+text-decoration:none;
+color:white;
+font-size:14px;
+letter-spacing:2px;
+opacity:.7;
+transition:.4s;
+}
+
+/* hover suave */
+
+.nav a:hover{
+opacity:1;
+}
+
+/* línea animada */
+
+.nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:white;
+transition:0.4s;
+}
+
+.nav a:hover::after{
+width:100%;
+}
+
+
+
+/* ================= HERO SECTION ================= */
+
+.design-hero{
+    position: relative;
+    height: 80vh; /* Altura del hero */
+    display:flex;
+    flex-direction:column;
+    justify-content:center; /* Centra verticalmente */
+    align-items:center; /* Centra horizontalmente */
+    text-align:center;
+    overflow:hidden;
+
+    /* Imagen de fondo */
+    background-image:url("../assets/img/1772828370735.png");
+    background-size:cover;
+    background-position:center;
+}
+
+/* Capa para difuminar la imagen del fondo */
+.hero-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    backdrop-filter: blur(6px); /* Desenfoque */
+    
+    /* Degradado oscuro para mejorar visibilidad del texto */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.641),
+        rgba(0, 0, 0, 0.744)
+    );
+
+    z-index:1;
+}
+
+/* Contenido del hero por encima del overlay */
+.design-hero .marquee,
+.design-hero .subtext{
+    position:relative;
+    z-index:2;
+}
+
+/* HERO (segunda definición para asegurar centrado total) */
+
+.design-hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+/* ================= MARQUEE (TEXTO EN MOVIMIENTO) ================= */
+
+.marquee{
+position:relative;
+width:100%;
+height:2em;
+font-size:5em; /* Tamaño grande del texto */
+display:grid;
+place-items:center;
+overflow:hidden;
+}
+
+/* Texto que se desplaza horizontalmente */
+.marquee_text{
+position:absolute;
+min-width:100%;
+white-space:nowrap;
+animation:marquee 16s infinite linear; /* Animación continua */
+}
+
+/* Animación de desplazamiento */
+@keyframes marquee{
+from { transform:translateX(70%); }
+to { transform:translateX(-70%); }
+}
+
+/* ================= EFECTO BLUR DEL TEXTO ================= */
+
+.marquee_blur{
+position:absolute;
+inset:0;
+display:grid;
+place-items:center;
+background:black;
+
+/* Gradientes para crear efecto de máscara lateral */
+background-image:
+linear-gradient(to right, white, 1rem, transparent 50%),
+linear-gradient(to left, white, 1rem, transparent 50%);
+
+filter:contrast(15); /* Aumenta contraste del blur */
+}
+
+/* Aplica desenfoque al texto */
+.marquee_blur p{
+filter:blur(0.07em);
+}
+
+/* Capa de texto claro encima del blur */
+.marquee_clear{
+position:absolute;
+inset:0;
+display:grid;
+place-items:center;
+}
+
+/* ================= SUBTEXTO ================= */
+
+.subtext{
+margin-top:40px;
+font-size:1.5rem;
+color:#ccc; /* Gris claro */
+max-width:600px;
+}
+
+/* ================= ANIMACIONES DE ENTRADA ================= */
+
+/* Animación inicial del marquee */
+.marquee{
+position:relative;
+width:100%;
+height:2em;
+font-size:5em;
+display:grid;
+place-items:center;
+overflow:hidden;
+
+opacity:0;
+transform:translateY(30px);
+animation:entradaHero 1.2s ease forwards;
+}
+
+/* Animación de aparición */
+@keyframes entradaHero{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Subtexto con animación de entrada */
+.subtext{
+margin-top:40px;
+font-size:1.5rem;
+color:#ccc;
+max-width:600px;
+
+opacity:0;
+transform:translateY(20px);
+animation:entradaSub 1.2s ease forwards;
+animation-delay:0.6s; /* Aparece después del título */
+}
+
+/* Animación de entrada del subtexto */
+@keyframes entradaSub{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ================= GALERÍA ================= */
+
+/* Sección general de la galería */
+.fashion-gallery{
+    padding:120px 8%;
+    background:#0f0f0f;
+}
+
+.gallery-title{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    font-size:3rem;
+    color:white;
+    margin-bottom:80px;
+    font-weight:300;
+    letter-spacing:4px;
+}
+
+/* tamaño del logo independiente */
+.logo-title{
+    height:80px;
+    width:auto;
+}
+
+/* texto gallery */
+.gallery-title span{
+    font-size:3rem;
+}
+
+/* Contenedor de columnas */
+.gallery-grid{
+    display:flex;
+    gap:40px;
+}
+
+/* Cada columna de imágenes */
+.gallery-column{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+/* Estilos de las imágenes */
+.gallery-column img{
+    width:100%;
+    border-radius:16px;
+    object-fit:cover;
+
+    /* Estado inicial para animación */
+    transform:translateY(80px);
+    opacity:0;
+
+    transition:
+        transform 1s cubic-bezier(.22,.61,.36,1),
+        opacity 1s ease;
+}
+
+/* Clase que activa la animación al aparecer en pantalla */
+.gallery-column img.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* Efecto hover elegante */
+.gallery-column img:hover{
+    transform:scale(1.04);
+}
+
+/* Estilos comunes para imágenes y videos */
+.gallery-column img,
+.gallery-column video{
+width:100%;
+border-radius:12px;
+object-fit:cover;
+display:block;
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+/* ===== Tablets grandes ===== */
+
+@media (max-width:1200px){
+
+.header{
+padding:0 40px;
+}
+
+.nav{
+gap:25px;
+}
+
+.marquee{
+font-size:4em;
+}
+
+.gallery-grid{
+gap:30px;
+}
+
+}
+
+/* ===== Tablets ===== */
+
+@media (max-width:900px){
+
+.header{
+padding:0 30px;
+}
+
+.nav{
+gap:20px;
+}
+
+.nav a{
+font-size:13px;
+letter-spacing:1px;
+}
+
+.marquee{
+font-size:3.2em;
+}
+
+.subtext{
+font-size:1.2rem;
+padding:0 20px;
+}
+
+.gallery-grid{
+flex-direction:column;
+}
+
+.gallery-title{
+font-size:2.4rem;
+gap:20px;
+}
+
+.logo-title{
+height:60px;
+}
+
+}
+
+/* ===== Móviles ===== */
+
+@media (max-width:600px){
+
+.header{
+padding:0 20px;
+height:60px;
+}
+
+.logo img{
+height:34px;
+}
+
+/* NAV más compacto */
+
+.nav{
+gap:15px;
+}
+
+.nav a{
+font-size:12px;
+letter-spacing:1px;
+}
+
+/* HERO */
+
+.marquee{
+font-size:2.2em;
+}
+
+.subtext{
+font-size:1rem;
+margin-top:20px;
+}
+
+/* GALERÍA */
+
+.fashion-gallery{
+padding:80px 6%;
+}
+
+.gallery-title{
+font-size:2rem;
+margin-bottom:50px;
+}
+
+.logo-title{
+height:50px;
+}
+
+.gallery-column{
+gap:25px;
+}
+
+}
+
+/* ===== Móviles pequeños ===== */
+
+@media (max-width:400px){
+
+.marquee{
+font-size:1.8em;
+}
+
+.subtext{
+font-size:0.9rem;
+}
+
+.nav{
+gap:10px;
+}
+
+.nav a{
+font-size:11px;
+}
+
+.gallery-title{
+font-size:1.6rem;
+}
+
+}

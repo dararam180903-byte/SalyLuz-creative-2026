@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags para prevenir caché -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="./css/software.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+<link rel="apple-touch-icon" href="./assets/img/SAL_&_LUZ/Recurso 17.png">
+
+    
+    <title>Software | Luz Studio</title>
+</head>
+<body>
+
+       <header class="header">
+
+<div class="logo">
+<img src="./assets/img/SAL_&_LUZ/SAL_&_LUZ_B.png" alt="">
+</div>
+
+<nav class="nav">
+<a href="index.html">Inicio</a>
+<a href="diseños.html">Diseños</a>
+<a href="software.html">Software</a>
+<a href="scripta_vr.html">Scripta VR</a>
+<a href="imprenta.html">Imprenta</a>
+</nav>
+
+</header>
+
+
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="heroSection">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./assets/img/diseño/CompLuz.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title typewriter">Vosotros sois la luz del mundo</h1>
+            <p class="hero-subtitle">Creamos software, identidad digital y soluciones web para iglesias, ministerios y marcas.</p>
+            <div class="scroll-down" id="scrollDown">&#x2193;</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section" id="projectsSection" style="position: relative;">
+        <div class="projects-content">
+            <h2 class="section-title typewriter">Proyectos y Plantillas</h2>
+            <p class="section-subtitle">Haz clic sobre el folder para ver algunos de nuestros trabajos</p>
+            
+            <div class="folder-container">
+                <img src="https://cdn-icons-png.flaticon.com/128/12075/12075589.png"
+                     data-closed="https://cdn-icons-png.flaticon.com/128/12075/12075589.png"
+                     data-open="https://cdn-icons-png.flaticon.com/128/12075/12075589.png"
+                     alt="Folder"
+                     class="folder-icon"
+                     id="folderIcon">
+            </div>
+        </div>
+
+          <!-- MODAL WINDOW -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-window">
+            
+            <!-- Header -->
+            <div class="modal-header">
+                <span class="modal-title">📁 Portafolio</span>
+                <button class="modal-close" id="closeModal">✕</button>
+            </div>
+            
+            <!-- Toolbar -->
+            <div class="modal-toolbar">
+                <div class="toolbar-buttons">
+                    <button class="tool-btn">
+                        <img src="https://cdn-icons-png.flaticon.com/128/271/271220.png" alt="back">
+                    </button>
+                    <button class="tool-btn">
+                        <img src="https://cdn-icons-png.flaticon.com/128/271/271228.png" alt="forward">
+                    </button>
+                    <button class="tool-btn">
+                        <img src="https://cdn-icons-png.flaticon.com/128/271/271239.png" alt="up">
+                    </button>
+                </div>
+                <div class="modal-path">📁 Proyectos / Portafolio</div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="modal-main">
+                
+                <!-- Sidebar -->
+                <div class="modal-sidebar">
+                    <div class="sidebar-item">🏠 Inicio</div>
+                    <div class="sidebar-item">📁 Escritorio</div>
+                    <div class="sidebar-item">📂 Documentos</div>
+                    <div class="sidebar-item">📦 Descargas</div>
+                    <div class="sidebar-item active">💻 Proyectos</div>
+                </div>
+                
+                <!-- File grid -->
+                <div class="modal-content">
+                   <div class="file-grid">
+
+                            
+
+                            <a href="https://jeweler-s-shop-2026.netlify.app/" target="_blank" class="file-item">
+                            <span class="material-symbols-outlined file-icon">description</span>
+                            <span>jeweler-s-shop-2026</span>
+                            </a>
+
+                            <a href="https://coffee-menu-2026.netlify.app/" target="_blank" class="file-item">
+                            <span class="material-symbols-outlined file-icon">description</span>
+                            <span>coffee-menu-2026</span>
+                            </a>
+
+                            <a href="https://ejemplo4.com" target="_blank" class="file-item">
+                            <span class="material-symbols-outlined file-icon">description</span>
+                            <span>Landing Page</span>
+                            </a>
+
+                            <a href="https://landigpage-2026.netlify.app/" target="_blank" class="file-item">
+                            <span class="material-symbols-outlined file-icon">description</span>
+                            <span>Educativa</span>
+                            </a>
+                            
+
+                            </div>
+                </div>
+                
+            </div>
+            
+            <!-- Status bar -->
+            <div class="modal-status">4 elementos</div>
+            
+        </div>
+    </div>
+
+    
+    </section>
+
+  
+
+    <!-- BACK TO TOP BUTTON -->
+    <div class="back-to-top" id="backToTop">
+        <span class="arrow-lines">&#8593;</span>
+    </div>
+
+    <script src="./js/software.js"></script>
+</body>
+</html>
