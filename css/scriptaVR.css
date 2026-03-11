@@ -59,9 +59,18 @@ filter:brightness(1.15);
 
 /* NAV */
 
-.nav{
-display:flex;
-gap:40px;
+/* NAV FIJO */
+.nav {
+  display: flex;
+  gap: 40px;
+
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;          /* Arriba de todo */
+  left: 0;
+  width: 100%;     /* Ocupa todo el ancho */
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente opcional */
+  padding: 20px 80px; /* Ajusta según tu diseño */
+  z-index: 1000;   /* Para que esté por encima de otros elementos */
 }
 
 .nav a{
