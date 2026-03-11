@@ -199,17 +199,20 @@ text-align:center;
 color:white;
 }
 
-.hero-logo{
-font-size:70px;
-font-weight:900;
-letter-spacing:6px;
-margin-bottom:15px;
-
-opacity:0;
-filter:blur(10px);
-
-animation:logoReveal 1.6s ease forwards;
-animation-delay:.8s;
+.hero-logo {
+  font-size: 8vw;  /* 8% del ancho de la pantalla */
+  font-weight: 900;
+  letter-spacing: 6px;
+  margin-bottom: 15px;
+  
+  /* Límites para que no sea muy pequeño o grande */
+  max-font-size: 70px;
+  min-font-size: 30px;
+  
+  opacity: 0;
+  filter: blur(10px);
+  animation: logoReveal 1.6s ease forwards;
+  animation-delay: .8s;
 }
 
 @keyframes logoReveal{
@@ -506,4 +509,47 @@ min-width:180px;
 font-size:16px;
 }
 
+}
+
+
+.hero-logo {
+  font-size: 70px;  /* Valor por defecto para desktop */
+  font-weight: 900;
+  letter-spacing: 6px;
+  margin-bottom: 15px;
+  
+  opacity: 0;
+  filter: blur(10px);
+  animation: logoReveal 1.6s ease forwards;
+  animation-delay: .8s;
+}
+
+/* Laptops */
+@media (max-width: 1200px) {
+  .hero-logo {
+    font-size: 60px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .hero-logo {
+    font-size: 48px;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 600px) {
+  .hero-logo {
+    font-size: 34px;
+    letter-spacing: 3px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 400px) {
+  .hero-logo {
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
 }
